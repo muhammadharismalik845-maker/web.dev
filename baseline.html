@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Baseline - web.dev</title>
+        <link rel="icon" type="image/x-icon" href="2.png">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="left-section">
+                <div class="logo-box">
+                    <img src="lockup.svg" alt="web.dev logo" class="logo-img">
+                </div>
+            </div>
+            <nav class="navbar">
+                <a href="index.html">Resources</a>
+                <a href="discover.html">Discover</a>
+                <a href="baseline.html" class="active">Baseline</a>
+                <a href="#">How to use Baseline</a>
+                <a href="#">Blog</a>
+                <a href="#">Case Studies</a>
+            </nav>
+            <div class="right-section">
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Search">
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <div class="language-dropdown">
+                    <button class="language-btn" aria-label="Select language">
+                        <span>🌐</span> English <span>▾</span>
+                    </button>
+                    <div class="language-menu">
+                        <button class="language-item">English</button>
+                        <button class="language-item">Español</button>
+                        <button class="language-item">Français</button>
+                        <button class="language-item">Deutsch</button>
+                        <button class="language-item">Português</button>
+                    </div>
+                </div>
+                <a href="#" class="signin">Sign in</a>
+            </div>
+        </header>
+        <main class="baseline-page">
+            <div class="baseline-container">
+                <div class="baseline-hero">
+                    <div class="baseline-copy">
+                        <h1>Baseline</h1>
+                        <p>Web Platform Baseline brings clarity to information about browser support for web platform features.</p>
+                        <p>Baseline gives you clear information about which web platform features are ready to use in your projects today. When reading an article, or choosing a library for your project, if the features used are all part of Baseline, you can trust the level of browser compatibility.</p>
+                    </div>
+                    <div class="baseline-card">
+                        <div class="baseline-card-inner">
+                            <div class="baseline-icon-group">
+                                <div class="check-mark check-mark-left">✓</div>
+                                <div class="check-mark check-mark-right"></div>
+                            </div>
+                            <div class="baseline-card-text">
+                                <span>Baseline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="baseline-content">
+                    <div class="baseline-section">
+                        <h2>Who defines Baseline?</h2>
+                        <p>Baseline was originated by the Chrome team and is now defined by the WebDX Community Group.</p>
+                    </div>
+
+                    <div class="baseline-grid">
+                        <article class="baseline-detail-card">
+                            <h3>How do things become Baseline?</h3>
+                            <p>Baseline has two stages:</p>
+                            <ul>
+                                <li><strong>Newly available:</strong> The feature is supported by all of the core browsers, and is therefore interoperable.</li>
+                                <li><strong>Widely available:</strong> 30 months have passed since the newly interoperable date. The feature can be used by most sites without worrying about support.</li>
+                            </ul>
+                            <p>Prior to being Newly available, a feature has <strong>Limited availability</strong> when it's not yet supported across browsers.</p>
+                        </article>
+                        <article class="baseline-detail-card">
+                            <h3>The core browser set</h3>
+                            <ul>
+                                <li>Chrome (desktop and Android)</li>
+                                <li>Edge</li>
+                                <li>Firefox (desktop and Android)</li>
+                                <li>Safari (macOS and iOS)</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <section class="baseline-tooling">
+                        <div class="baseline-section">
+                            <h2>Baseline and tooling</h2>
+                            <p>As Baseline has matured, more developers are integrating it into their workflows. Learn about the latest tools to integrate Baseline, as well as resources you can use to build your own tools!</p>
+                        </div>
+                        <div class="baseline-tooling-grid feature-grid">
+                            <article class="feature-card">
+                                <img src="thumbnail_480.png" alt="Browserslist now supports Baseline" class="card-image">
+                                <h2>Browserslist now supports Baseline</h2>
+                                <p>Browserslist has added support for Baseline queries. Find out what that could mean for your developer workflow.</p>
+                                <a href="#" class="card-button">Read more</a>
+                            </article>
+                            <article class="feature-card">
+                                <img src="thumbnail_480%20(1).png" alt="Create Baseline tools with the web-features package" class="card-image">
+                                <h2>Create Baseline tools with the web-features package</h2>
+                                <p>Learn how to use the data in the web-features npm package to create your own Baseline tools.</p>
+                                <a href="#" class="card-button">Read more</a>
+                            </article>
+                            <article class="feature-card">
+                                <img src="baseline-hackathon_480.png" alt="The Baseline Tooling Hackathon starts now" class="card-image">
+                                <h2>The Baseline Tooling Hackathon starts now!</h2>
+                                <p>Want to make the web better for a chance to win cash prizes? Join the Baseline Tooling Hackathon!</p>
+                                <a href="#" class="card-button">Get involved</a>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="baseline-action">
+                    <div class="baseline-action-copy">
+                        <p class="eyebrow">Baseline in action</p>
+                        <h2>Understand feature readiness faster</h2>
+                        <p>Baseline gives teams a single view of browser support, interoperability, and production readiness. Use it to make confident choices on the web platform without second guessing which features are safe to ship.</p>
+                        <a href="#" class="btn btn-primary">Explore Baseline features</a>
+                    </div>
+                    <div class="baseline-action-card">
+                        <div class="baseline-action-card-inner">
+                            <div class="card-header">
+                                <span>Feature readiness</span>
+                                <span class="status-pill">Widely available</span>
+                            </div>
+                            <h3>Browser support at a glance</h3>
+                            <p>Track which features are ready for production, which are still emerging, and how quickly support is expanding across browsers.</p>
+                            <div class="baseline-card-illustration">
+                                <div class="illustration-header">
+                                    <span>Baseline status</span>
+                                    <span class="image-pill">Updated 3 mins ago</span>
+                                </div>
+                                <div class="illustration-panel">
+                                    <div class="illustration-row illustration-row-full"></div>
+                                    <div class="illustration-row illustration-row-medium"></div>
+                                    <div class="illustration-row illustration-row-short"></div>
+                                    <div class="illustration-row illustration-row-medium"></div>
+                                </div>
+                            </div>
+                            <div class="status-grid">
+                                <div class="status-item"><strong>Chrome</strong><span>Yes</span></div>
+                                <div class="status-item"><strong>Edge</strong><span>Yes</span></div>
+                                <div class="status-item"><strong>Firefox</strong><span>Yes</span></div>
+                                <div class="status-item"><strong>Safari</strong><span>Yes</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-box">
+                    <h2>web.dev</h2>
+                    <p>We want to help you build beautiful, accessible, fast, and secure websites that work cross-browser, and for all of your users. This site is our home for content to help you on that journey, written by members of the Chrome team, and external experts.</p>
+                </div>
+                <div class="footer-box">
+                    <h3>Contribute</h3>
+                    <a href="#">File a bug</a>
+                    <a href="#">See Open Issues</a>
+                </div>
+                <div class="footer-box">
+                    <h3>Related Content</h3>
+                    <p>Chrome For Developers</p>
+                    <p>Chromium Updates</p>
+                    <p>Case Studies</p>
+                    <p>Podcasts & Shows</p>
+                </div>
+                <div class="footer-box">
+                    <h3>Follow</h3>
+                    <p>@ChromiumDev on X</p>
+                    <p>Chromium Updates</p>
+                    <p>YouTube</p>
+                    <p>Chrome for Developers on LinkdIn</p>
+                    <p>RSS</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <span> | </span>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="language-dropdown">
+                    <button class="language-btn" aria-label="Select language">
+                        <span>🌐</span> English <span>▾</span>
+                    </button>
+                    <div class="language-menu">
+                        <button class="language-item">English</button>
+                        <button class="language-item">Español</button>
+                        <button class="language-item">Français</button>
+                        <button class="language-item">Deutsch</button>
+                        <button class="language-item">Português</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            themeToggle?.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDark = document.body.classList.contains('dark-mode');
+                themeIcon.textContent = isDark ? '☀️' : '🌙';
+            });
+        </script>
+    </body>
+</html>

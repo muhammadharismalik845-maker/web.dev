@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Discover - web.dev</title>
+        <link rel="icon" type="image/x-icon" href="2.png">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    </head>
+
+    <body>
+
+        <header class="header">
+            <div class="left-section">
+                <div class="logo-box">
+                    <img src="lockup.svg" alt="web.dev logo" class="logo-img">
+                </div>
+            </div>
+
+            <nav class="navbar">
+                <a href="index.html">Resources</a>
+                <a href="discover.html" class="active">Discover</a>
+                <a href="baseline.html">Baseline</a>
+                <a href="#">How to use Baseline</a>
+                <a href="#">Blog</a>
+                <a href="#">Case Studies</a>
+            </nav>
+
+            <div class="right-section">
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Search">
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <div class="language-dropdown">
+                    <button class="language-btn" aria-label="Select language">
+                        <span>🌐</span> English <span>▾</span>
+                    </button>
+                    <div class="language-menu">
+                        <button class="language-item">English</button>
+                        <button class="language-item">Español</button>
+                        <button class="language-item">Français</button>
+                        <button class="language-item">Deutsch</button>
+                        <button class="language-item">Português</button>
+                    </div>
+                </div>
+                <a href="#" class="signin">Sign in</a>
+            </div>
+        </header>
+
+        <main class="discover-page">
+            <div class="discover-container">
+                <h1>Discover</h1>
+
+                <div class="discover-layout">
+                    <!-- Sidebar Filters -->
+                    <aside class="discover-sidebar">
+                        <div class="filter-section">
+                            <h3>FILTER BY</h3>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Content type</h4>
+                            <div class="select-all">
+                                <a href="#">Select all</a>
+                            </div>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="blog">
+                                <span>Blog</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="case-studies">
+                                <span>Case Studies</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course">
+                                <span>Course</span>
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Topics</h4>
+                            <div class="select-all">
+                                <a href="#">Select all</a>
+                            </div>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="ai">
+                                <span>AI</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="baseline">
+                                <span>Baseline</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="new-to-web">
+                                <span>New to the Web</span>
+                            </label>
+                            <div class="more-options">
+                                <button class="more-toggle">More ▼</button>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Language</h4>
+                            <div class="select-all">
+                                <a href="#">Select all</a>
+                            </div>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="html">
+                                <span>HTML</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="css">
+                                <span>CSS</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="javascript">
+                                <span>JavaScript</span>
+                            </label>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <section class="discover-content">
+                        <div class="filter-bar">
+                            <input type="text" placeholder="Filter results" class="filter-input">
+                        </div>
+
+                        <div class="discover-grid">
+                            <article class="discover-card">
+                                <h2>How to create an app badge</h2>
+                                <p>Badges are used to convey non-urgent information to the user. For example, they are used to indicate the...</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to drag and drop directories</h2>
+                                <p>The HTML Drag and Drop interfaces enable web applications to accept dragged and dropped files...</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to create app shortcuts</h2>
+                                <p>App shortcuts help users quickly start common or recommended tasks within your web app. Easy acces...</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to use multiple screens</h2>
+                                <p>To make sure your browser supports the getScreenDetails() method, first check if it exists on th...</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to process audio from the user's microphone</h2>
+                                <p>Accessing the user's camera and microphone is possible on the web platform with the Media...</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>Learn AI</h2>
+                                <p>An artificial intelligence course built for web developers.</p>
+                                <div class="card-tags">
+                                    <span class="tag-pill">AI & Machine Learning</span>
+                                    <span class="tag-pill">Web</span>
+                                </div>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to build offline-first experiences</h2>
+                                <p>Use service workers and caching strategies to ensure your site works even when the network is unreliable.</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to improve loading performance</h2>
+                                <p>Learn techniques that reduce page load time and improve perceived performance for your users.</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+
+                            <article class="discover-card">
+                                <h2>How to secure web apps</h2>
+                                <p>Protect user data by following best practices for authentication, HTTPS, and secure resource loading.</p>
+                                <a href="#" class="discover-button">Learn more</a>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <div class="footer-container">
+
+                <!-- FOOTER LEFT -->
+                <div class="footer-box">
+                    <h2>web.dev</h2>
+
+                    <p>
+                        We want to help you build beautiful, accessible, fast, and secure websites that work cross-browser, and for all of your users. This site is our home for content to help you on that journey, written by members of the Chrome team, and external experts.
+
+                    </p>
+                </div>
+
+                <!-- FOOTER LINKS -->
+                <div class="footer-box">
+
+                    <h3>Contribute</h3>
+
+                    <a href="#">File a bug</a>
+                    <a href="#">See Open Issues</a>
+
+
+                </div>
+
+                <!-- FOOTER CONTACT -->
+                <div class="footer-box">
+
+                    <h3>Related Content</h3>
+
+                    <p>Chrome For Developers</p>
+                    <p>Chromium Updates</p>
+                    <p>Case Studies</p>
+                    <p>Podcasts & Shows</p>
+
+                </div>
+                <!-- FOOTER CONTACT -->
+                <div class="footer-box">
+
+                    <h3>Follow</h3>
+
+                    <p>@ChromiumDev on X</p>
+                    <p>Chromium Updates</p>
+                    <p>YouTube</p>
+                    <p>Chrome for Developers on LinkdIn</p>
+                    <p>RSS</p>
+
+                </div>
+
+
+            </div>
+
+            <!-- FOOTER BOTTOM -->
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <span> | </span>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="language-dropdown">
+                    <button class="language-btn" aria-label="Select language">
+                        <span>🌐</span> English <span>▾</span>
+                    </button>
+                    <div class="language-menu">
+                        <button class="language-item">English</button>
+                        <button class="language-item">Español</button>
+                        <button class="language-item">Français</button>
+                        <button class="language-item">Deutsch</button>
+                        <button class="language-item">Português</button>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+        <script>
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+
+            themeToggle?.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDark = document.body.classList.contains('dark-mode');
+                themeIcon.textContent = isDark ? '☀️' : '🌙';
+            });
+        </script>
+    </body>
+</html>
