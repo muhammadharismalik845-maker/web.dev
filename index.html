@@ -77,47 +77,6 @@
         </section>
     </main>
 
-    <section class="slider-section">
-        <div class="slider-container">
-            <div class="slider-track">
-                <article class="slider-slide">
-                    <img src="ai-web.png" alt="Baseline for CSS properties" class="slide-image">
-                    <div class="slide-copy">
-                        <span class="slide-tag">Baseline</span>
-                        <h2>Baseline for CSS properties now available in Chrome DevTools</h2>
-                        <p>Baseline information is now visible for CSS properties in the Elements panel of Chrome DevTools so you can work with safe web platform features faster.</p>
-                        <a href="#" class="card-button">Learn more</a>
-                    </div>
-                </article>
-                <article class="slider-slide">
-                    <img src="optimize-inp.png" alt="How to use Baseline in your project" class="slide-image">
-                    <div class="slide-copy">
-                        <span class="slide-tag">Guides</span>
-                        <h2>How to use Baseline in your project</h2>
-                        <p>Learn how to integrate Baseline into your site or app with practical examples and tools built on the web platform.</p>
-                        <a href="#" class="card-button">Learn more</a>
-                    </div>
-                </article>
-                <article class="slider-slide">
-                    <img src="payments-identity.png" alt="WebPlatform Dashboard" class="slide-image">
-                    <div class="slide-copy">
-                        <span class="slide-tag">Dashboard</span>
-                        <h2>WebStatus.dev: deeper insights and a clearer path to Baseline</h2>
-                        <p>See the latest updates to the Web Platform Dashboard and how it surfaces Baseline-ready features for your team.</p>
-                        <a href="#" class="card-button">Learn more</a>
-                    </div>
-                </article>
-            </div>
-            <button class="slider-control prev" aria-label="Previous slide">‹</button>
-            <button class="slider-control next" aria-label="Next slide">›</button>
-            <div class="slider-dots">
-                <button class="slider-dot active" data-slide="0" aria-label="Slide 1"></button>
-                <button class="slider-dot" data-slide="1" aria-label="Slide 2"></button>
-                <button class="slider-dot" data-slide="2" aria-label="Slide 3"></button>
-            </div>
-        </div>
-    </section>
-
     <section class="feature-section">
         <div class="feature-grid">
             <article class="feature-card">
@@ -238,23 +197,6 @@
             applyTheme(darkMode);
             localStorage.setItem('theme', darkMode ? 'dark' : 'light');
         });
-
-        const sliderTrack = document.querySelector('.slider-track');
-        const slides = Array.from(document.querySelectorAll('.slider-slide'));
-        const dots = Array.from(document.querySelectorAll('.slider-dot'));
-        const prevButton = document.querySelector('.slider-control.prev');
-        const nextButton = document.querySelector('.slider-control.next');
-        let currentSlide = 0;
-
-        const updateSlider = (index) => {
-            currentSlide = (index + slides.length) % slides.length;
-            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentSlide));
-        };
-
-        prevButton?.addEventListener('click', () => updateSlider(currentSlide - 1));
-        nextButton?.addEventListener('click', () => updateSlider(currentSlide + 1));
-        dots.forEach((dot, index) => dot.addEventListener('click', () => updateSlider(index)));
     </script>
 </body>
 </html>
