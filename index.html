@@ -96,16 +96,15 @@
                     <img src="baseline-hackathon_480.png" alt="Baseline Tooling Hackathon" class="hero-slide-img">
                 </article>
             </div>
-            <div class="hero-slider-actions">
-                <button class="slider-btn prev" aria-label="Previous slide">‹</button>
-                <button class="slider-btn next" aria-label="Next slide">›</button>
-            </div>
+            <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="slider-btn next" aria-label="Next slide">›</button>
         </div>
         <div class="hero-slider-dots">
             <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
             <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
             <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
-            <button class="slider-dot" data-index="4" aria-label="Slide 4"></button>
+            <button class="slider-dot" data-index="3" aria-label="Slide 4"></button>
+            <button class="slider-dot" data-index="4" aria-label="Slide 5"></button>
         </div>
     </section>
 
@@ -236,21 +235,16 @@
         const prevBtn = document.querySelector('.slider-btn.prev');
         const nextBtn = document.querySelector('.slider-btn.next');
         let currentSlide = 0;
-        const itemsVisible = 4;
 
         const updateSlider = (newIndex) => {
-            currentSlide = Math.max(0, Math.min(newIndex, slides.length - itemsVisible));
-            const gapWidth = 20;
-            const slideWidth = slides[0]?.offsetWidth || (window.innerWidth > 1024 ? (1200 - 48 - 60) / 4 : 280);
-            const shift = currentSlide * (slideWidth + gapWidth);
-            sliderTrack.style.transform = `translateX(-${shift}px)`;
-            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === Math.floor(currentSlide / itemsVisible)));
+            currentSlide = (newIndex + slides.length) % slides.length;
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
         };
 
         prevBtn?.addEventListener('click', () => updateSlider(currentSlide - 1));
         nextBtn?.addEventListener('click', () => updateSlider(currentSlide + 1));
         dots.forEach(dot => dot.addEventListener('click', (e) => updateSlider(parseInt(e.target.dataset.index))));
-        updateSlider(0);
     </script>
 </body>
 </html>
