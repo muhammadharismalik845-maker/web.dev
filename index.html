@@ -212,6 +212,115 @@
 
 
     <script>
+        // Language Selector
+        const languageBtn = document.querySelector('.language-btn');
+        const languageMenu = document.querySelector('.language-menu');
+        const languageItems = Array.from(document.querySelectorAll('.language-item'));
+
+        const translations = {
+            en: {
+                resourcesLink: 'Resources',
+                discoverLink: 'Discover',
+                baselineLink: 'Baseline',
+                formLink: 'Form',
+                blogLink: 'Blog',
+                caseStudiesLink: 'Case Studies'
+            },
+            es: {
+                resourcesLink: 'Recursos',
+                discoverLink: 'Descubrir',
+                baselineLink: 'Línea de Base',
+                formLink: 'Formulario',
+                blogLink: 'Blog',
+                caseStudiesLink: 'Estudios de Caso'
+            },
+            fr: {
+                resourcesLink: 'Ressources',
+                discoverLink: 'Découvrir',
+                baselineLink: 'Ligne de Base',
+                formLink: 'Formulaire',
+                blogLink: 'Blog',
+                caseStudiesLink: 'Études de Cas'
+            },
+            de: {
+                resourcesLink: 'Ressourcen',
+                discoverLink: 'Entdecken',
+                baselineLink: 'Grundlinie',
+                formLink: 'Formular',
+                blogLink: 'Blog',
+                caseStudiesLink: 'Fallstudien'
+            },
+            pt: {
+                resourcesLink: 'Recursos',
+                discoverLink: 'Descobrir',
+                baselineLink: 'Linha de Base',
+                formLink: 'Formulário',
+                blogLink: 'Blog',
+                caseStudiesLink: 'Estudos de Caso'
+            },
+            ur: {
+                resourcesLink: 'وسائل',
+                discoverLink: 'دریافت کریں',
+                baselineLink: 'بنیادی خط',
+                formLink: 'فارم',
+                blogLink: 'بلاگ',
+                caseStudiesLink: 'کیس سٹڈیز'
+            }
+        };
+
+        const currentLanguage = localStorage.getItem('language') || 'en';
+
+        const toggleLanguageMenu = () => {
+            languageMenu.classList.toggle('active');
+        };
+
+        const closeLanguageMenu = () => {
+            languageMenu.classList.remove('active');
+        };
+
+        const changeLanguage = (lang) => {
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang;
+            
+            // Update language button
+            const langNames = { en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch', pt: 'Português', ur: 'Urdu' };
+            languageBtn.innerHTML = `<span>🌐</span> ${langNames[lang]} <span>▾</span>`;
+            
+            // Update page content
+            const navLinks = document.querySelectorAll('.navbar a');
+            const translation = translations[lang];
+            if (translation && navLinks.length > 0) {
+                navLinks[0].textContent = translation.resourcesLink;
+                navLinks[1].textContent = translation.discoverLink;
+                navLinks[2].textContent = translation.baselineLink;
+                navLinks[3].textContent = translation.formLink;
+                navLinks[4].textContent = translation.blogLink || 'Blog';
+                navLinks[5].textContent = translation.caseStudiesLink;
+            }
+
+            closeLanguageMenu();
+        };
+
+        // Set initial language
+        changeLanguage(currentLanguage);
+
+        languageBtn?.addEventListener('click', toggleLanguageMenu);
+
+        languageItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                const langMap = { 'English': 'en', 'Español': 'es', 'Français': 'fr', 'Deutsch': 'de', 'Português': 'pt', 'Urdu': 'ur' };
+                const lang = langMap[item.textContent.trim()];
+                if (lang) changeLanguage(lang);
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.language-dropdown')) {
+                closeLanguageMenu();
+            }
+        });
+
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const storedTheme = localStorage.getItem('theme');

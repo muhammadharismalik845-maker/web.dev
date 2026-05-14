@@ -1862,6 +1862,10 @@ body{
     z-index: 100;
 }
 
+.language-menu.active{
+    display: flex;
+}
+
 .language-dropdown:hover .language-menu{
     display: flex;
 }
@@ -1913,6 +1917,29 @@ body.dark-mode .theme-toggle{
     background: #303134;
     border-color: #333;
     color: #e8eaed;
+}
+
+body.dark-mode .language-btn{
+    background: #303134;
+    border-color: #333;
+    color: #e8eaed;
+}
+
+body.dark-mode .language-btn:hover{
+    background: #3c4043;
+}
+
+body.dark-mode .language-menu{
+    background: #303134;
+    border-color: #333;
+}
+
+body.dark-mode .language-item{
+    color: #e8eaed;
+}
+
+body.dark-mode .language-item:hover{
+    background: #3c4043;
 }
 
 /* THEME ICON */
