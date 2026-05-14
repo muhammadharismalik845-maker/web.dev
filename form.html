@@ -107,7 +107,7 @@
                         <h2>Date & Time</h2>
                         <label>
                             Event Date
-                            <input type="date">
+                            <input type="date" id="eventDate">
                         </label>
                         <label>
                             Start Time
@@ -167,7 +167,14 @@
             const nextStepBtn = document.querySelector('.step-btn.next');
             const eventForm = document.querySelector('.event-form');
             const errorMessage = document.querySelector('.error-message');
+            const eventDateInput = document.getElementById('eventDate');
             let activeFormStep = 0;
+
+            // Set minimum date to today - disable past dates
+            const today = new Date().toISOString().split('T')[0];
+            if (eventDateInput) {
+                eventDateInput.min = today;
+            }
 
             const validateCurrentStep = () => {
                 const currentStep = formSteps[activeFormStep];
