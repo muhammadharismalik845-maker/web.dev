@@ -109,6 +109,145 @@
         </div>
     </section>
 
+    <section class="event-form-section">
+        <div class="event-form-container">
+            <div class="event-form-header">
+                <h1>Create an Event</h1>
+                <p>Use the form below to add event details, contact info, pricing, schedule, location, and media.</p>
+            </div>
+
+            <div class="form-progress">
+                <button class="progress-step active" data-step="0">
+                    <span>1</span>
+                    <strong>Event Information</strong>
+                </button>
+                <button class="progress-step" data-step="1">
+                    <span>2</span>
+                    <strong>Contact Information</strong>
+                </button>
+                <button class="progress-step" data-step="2">
+                    <span>3</span>
+                    <strong>Prices & Offers</strong>
+                </button>
+                <button class="progress-step" data-step="3">
+                    <span>4</span>
+                    <strong>Date & Time</strong>
+                </button>
+                <button class="progress-step" data-step="4">
+                    <span>5</span>
+                    <strong>Location</strong>
+                </button>
+                <button class="progress-step" data-step="5">
+                    <span>6</span>
+                    <strong>Gallery & Social Media</strong>
+                </button>
+            </div>
+
+            <form class="event-form" novalidate>
+                <div class="form-step active" data-step="0">
+                    <h2>Event Information</h2>
+                    <label>
+                        Event Title *
+                        <input type="text" placeholder="Enter event title">
+                    </label>
+                    <label>
+                        Event Category *
+                        <input type="text" placeholder="Select category">
+                    </label>
+                    <label>
+                        Default Category *
+                        <input type="text" placeholder="Enter default category">
+                    </label>
+                </div>
+
+                <div class="form-step" data-step="1">
+                    <h2>Contact Information</h2>
+                    <label>
+                        Organizer Name *
+                        <input type="text" placeholder="Enter organizer name">
+                    </label>
+                    <label>
+                        Email Address *
+                        <input type="email" placeholder="Enter email address">
+                    </label>
+                    <label>
+                        Phone Number
+                        <input type="tel" placeholder="Enter phone number">
+                    </label>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h2>Prices & Offers</h2>
+                    <label>
+                        Ticket Price
+                        <input type="text" placeholder="Enter ticket price">
+                    </label>
+                    <label>
+                        Offer Code
+                        <input type="text" placeholder="Enter promo code">
+                    </label>
+                    <label>
+                        Discount Details
+                        <input type="text" placeholder="Add discount description">
+                    </label>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <h2>Date & Time</h2>
+                    <label>
+                        Event Date
+                        <input type="date">
+                    </label>
+                    <label>
+                        Start Time
+                        <input type="time">
+                    </label>
+                    <label>
+                        End Time
+                        <input type="time">
+                    </label>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <h2>Location</h2>
+                    <label>
+                        Venue Name
+                        <input type="text" placeholder="Enter venue name">
+                    </label>
+                    <label>
+                        Address
+                        <input type="text" placeholder="Enter full address">
+                    </label>
+                    <label>
+                        City / State
+                        <input type="text" placeholder="Enter city or state">
+                    </label>
+                </div>
+
+                <div class="form-step" data-step="5">
+                    <h2>Gallery & Social Media</h2>
+                    <label>
+                        Photo Link
+                        <input type="text" placeholder="Enter image URL">
+                    </label>
+                    <label>
+                        Instagram URL
+                        <input type="url" placeholder="Enter Instagram link">
+                    </label>
+                    <label>
+                        Facebook Event URL
+                        <input type="url" placeholder="Enter Facebook event link">
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="step-btn prev" disabled>Back</button>
+                    <button type="button" class="step-btn next">Next</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <section class="feature-section">
         <div class="feature-grid">
             <article class="feature-card">
@@ -269,6 +408,49 @@
         sliderWrapper?.addEventListener('mouseleave', startAutoPlay);
 
         startAutoPlay();
+
+        const formSteps = Array.from(document.querySelectorAll('.form-step'));
+        const progressSteps = Array.from(document.querySelectorAll('.progress-step'));
+        const prevStepBtn = document.querySelector('.step-btn.prev');
+        const nextStepBtn = document.querySelector('.step-btn.next');
+        const eventForm = document.querySelector('.event-form');
+        let activeFormStep = 0;
+
+        const updateFormStep = () => {
+            formSteps.forEach((step, idx) => step.classList.toggle('active', idx === activeFormStep));
+            progressSteps.forEach((step, idx) => step.classList.toggle('active', idx === activeFormStep));
+            prevStepBtn.disabled = activeFormStep === 0;
+            nextStepBtn.textContent = activeFormStep === formSteps.length - 1 ? 'Submit' : 'Next';
+        };
+
+        progressSteps.forEach((step) => {
+            step.addEventListener('click', () => {
+                const stepIndex = Number(step.dataset.step);
+                activeFormStep = stepIndex;
+                updateFormStep();
+            });
+        });
+
+        prevStepBtn?.addEventListener('click', () => {
+            if (activeFormStep > 0) {
+                activeFormStep -= 1;
+                updateFormStep();
+            }
+        });
+
+        nextStepBtn?.addEventListener('click', () => {
+            if (activeFormStep < formSteps.length - 1) {
+                activeFormStep += 1;
+                updateFormStep();
+            } else {
+                eventForm?.requestSubmit();
+            }
+        });
+
+        eventForm?.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Event submitted successfully!');
+        });
     </script>
 </body>
 </html>
