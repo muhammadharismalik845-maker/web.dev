@@ -230,21 +230,44 @@
         });
 
         const sliderTrack = document.querySelector('.hero-slider-track');
+        const sliderWrapper = document.querySelector('.hero-slider-wrapper');
         const slides = Array.from(document.querySelectorAll('.hero-slide'));
         const dots = Array.from(document.querySelectorAll('.slider-dot'));
         const prevBtn = document.querySelector('.slider-btn.prev');
         const nextBtn = document.querySelector('.slider-btn.next');
         let currentSlide = 0;
+        let autoPlayInterval;
 
         const updateSlider = (newIndex) => {
             currentSlide = (newIndex + slides.length) % slides.length;
             sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
+            resetAutoPlay();
+        };
+
+        const startAutoPlay = () => {
+            autoPlayInterval = setInterval(() => {
+                updateSlider(currentSlide + 1);
+            }, 5000);
+        };
+
+        const stopAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+        };
+
+        const resetAutoPlay = () => {
+            stopAutoPlay();
+            startAutoPlay();
         };
 
         prevBtn?.addEventListener('click', () => updateSlider(currentSlide - 1));
         nextBtn?.addEventListener('click', () => updateSlider(currentSlide + 1));
         dots.forEach(dot => dot.addEventListener('click', (e) => updateSlider(parseInt(e.target.dataset.index))));
+
+        sliderWrapper?.addEventListener('mouseenter', stopAutoPlay);
+        sliderWrapper?.addEventListener('mouseleave', startAutoPlay);
+
+        startAutoPlay();
     </script>
 </body>
 </html>
