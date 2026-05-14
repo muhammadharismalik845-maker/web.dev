@@ -155,6 +155,7 @@
                         <button type="button" class="step-btn prev" disabled>Back</button>
                         <button type="button" class="step-btn next">Next</button>
                     </div>
+                    <div class="error-message" style="display: none; color: red; margin-top: 10px; font-weight: bold;"></div>
                 </form>
             </div>
         </section>
@@ -165,13 +166,46 @@
             const prevStepBtn = document.querySelector('.step-btn.prev');
             const nextStepBtn = document.querySelector('.step-btn.next');
             const eventForm = document.querySelector('.event-form');
+            const errorMessage = document.querySelector('.error-message');
             let activeFormStep = 0;
+
+            const validateCurrentStep = () => {
+                const currentStep = formSteps[activeFormStep];
+                const inputs = currentStep.querySelectorAll('input, select');
+                let isValid = true;
+                let emptyFields = [];
+
+                inputs.forEach((input) => {
+                    const label = input.closest('label');
+                    const labelText = label ? label.textContent.trim() : '';
+                    
+                    // Check if field is required (marked with *)
+                    if (labelText.includes('*')) {
+                        const value = input.value.trim();
+                        if (value === '' || value === 'Select Category' || value === 'Select default category' || value === 'Select a date') {
+                            isValid = false;
+                            const fieldName = labelText.split('*')[0].trim();
+                            emptyFields.push(fieldName);
+                        }
+                    }
+                });
+
+                if (!isValid) {
+                    errorMessage.textContent = '⚠️ Please fill these fields: ' + emptyFields.join(', ');
+                    errorMessage.style.display = 'block';
+                } else {
+                    errorMessage.style.display = 'none';
+                }
+
+                return isValid;
+            };
 
             const updateFormStep = () => {
                 formSteps.forEach((step, idx) => step.classList.toggle('active', idx === activeFormStep));
                 progressSteps.forEach((step, idx) => step.classList.toggle('active', idx === activeFormStep));
                 prevStepBtn.disabled = activeFormStep === 0;
                 nextStepBtn.textContent = activeFormStep === formSteps.length - 1 ? 'Submit' : 'Next';
+                errorMessage.style.display = 'none';
             };
 
             progressSteps.forEach((step) => {
@@ -190,11 +224,13 @@
             });
 
             nextStepBtn?.addEventListener('click', () => {
-                if (activeFormStep < formSteps.length - 1) {
-                    activeFormStep += 1;
-                    updateFormStep();
-                } else {
-                    eventForm?.requestSubmit();
+                if (validateCurrentStep()) {
+                    if (activeFormStep < formSteps.length - 1) {
+                        activeFormStep += 1;
+                        updateFormStep();
+                    } else {
+                        eventForm?.requestSubmit();
+                    }
                 }
             });
 
