@@ -77,6 +77,32 @@
         </section>
     </main>
 
+    <section class="hero-slider">
+        <div class="hero-slider-wrapper">
+            <div class="hero-slider-track">
+                <article class="hero-slide active">
+                    <img src="ai-web.png" alt="AI and the web" class="hero-slide-img">
+                </article>
+                <article class="hero-slide">
+                    <img src="optimize-inp.png" alt="Optimize INP" class="hero-slide-img">
+                </article>
+                <article class="hero-slide">
+                    <img src="payments-identity.png" alt="Payments & Identity" class="hero-slide-img">
+                </article>
+                <article class="hero-slide">
+                    <img src="thumbnail_480.png" alt="Baseline tooling" class="hero-slide-img">
+                </article>
+                <article class="hero-slide">
+                    <img src="baseline-hackathon_480.png" alt="Baseline Tooling Hackathon" class="hero-slide-img">
+                </article>
+            </div>
+        </div>
+        <div class="hero-slider-actions">
+            <button class="slider-btn prev" aria-label="Previous slide">Previous</button>
+            <button class="slider-btn next" aria-label="Next slide">Next</button>
+        </div>
+    </section>
+
     <section class="feature-section">
         <div class="feature-grid">
             <article class="feature-card">
@@ -197,6 +223,31 @@
             applyTheme(darkMode);
             localStorage.setItem('theme', darkMode ? 'dark' : 'light');
         });
+
+        const sliderTrack = document.querySelector('.hero-slider-track');
+        const slides = Array.from(document.querySelectorAll('.hero-slide'));
+        const prevBtn = document.querySelector('.slider-btn.prev');
+        const nextBtn = document.querySelector('.slider-btn.next');
+        let activeIndex = 0;
+
+        const updateSlides = (newIndex) => {
+            activeIndex = (newIndex + slides.length) % slides.length;
+            const slideWidth = slides[0]?.offsetWidth || 420;
+            const gapValue = window.innerWidth <= 980 ? 60 : 120;
+            const shift = activeIndex * (slideWidth - gapValue);
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === activeIndex);
+                slide.style.transform = `scale(${index === activeIndex ? 1 : 0.82})`;
+                slide.style.opacity = index === activeIndex ? '1' : '0.55';
+                slide.style.zIndex = index === activeIndex ? '2' : '1';
+            });
+            sliderTrack.style.transform = `translateX(calc(50% - ${shift}px - 50%))`;
+        };
+
+        prevBtn?.addEventListener('click', () => updateSlides(activeIndex - 1));
+        nextBtn?.addEventListener('click', () => updateSlides(activeIndex + 1));
+        updateSlides(activeIndex);
     </script>
 </body>
 </html>
