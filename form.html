@@ -9,48 +9,6 @@
     </head>
 
     <body>
-        <header class="header">
-            <div class="left-section">
-                <div class="logo-box">
-                    <img src="lockup.svg" alt="web.dev logo" class="logo-img">
-                </div>
-            </div>
-
-            <nav class="navbar">
-                <a href="index.html">Resources</a>
-                <a href="discover.html">Discover</a>
-                <a href="baseline.html">Baseline</a>
-                <a href="form.html" class="active">Form</a>
-                <a href="#">How to use Baseline</a>
-                <a href="#">Blog</a>
-                <a href="#">Case Studies</a>
-            </nav>
-
-            <div class="right-section">
-                <div class="search-box">
-                    <span>🔍</span>
-                    <input type="search" placeholder="Search">
-                </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <span class="theme-icon" id="themeIcon">🌙</span>
-                </button>
-                <div class="language-dropdown">
-                    <button class="language-btn" aria-label="Select language">
-                        <span>🌐</span> English <span>▾</span>
-                    </button>
-                    <div class="language-menu">
-                        <button class="language-item">English</button>
-                        <button class="language-item">Español</button>
-                        <button class="language-item">Français</button>
-                        <button class="language-item">Deutsch</button>
-                        <button class="language-item">Português</button>
-                        <button class="language-item">Urdu</button>
-                    </div>
-                </div>
-                <a href="#" class="signin">Sign in</a>
-            </div>
-        </header>
-
         <section class="event-form-section">
             <div class="event-form-container">
                 <div class="event-form-header">
@@ -59,27 +17,27 @@
                 </div>
 
                 <div class="form-progress">
-                    <button class="progress-step active" data-step="0">
+                    <button class="progress-step active" type="button" data-step="0">
                         <span>1</span>
                         <strong>Event Information</strong>
                     </button>
-                    <button class="progress-step" data-step="1">
+                    <button class="progress-step" type="button" data-step="1">
                         <span>2</span>
                         <strong>Contact Information</strong>
                     </button>
-                    <button class="progress-step" data-step="2">
+                    <button class="progress-step" type="button" data-step="2">
                         <span>3</span>
                         <strong>Prices & Offers</strong>
                     </button>
-                    <button class="progress-step" data-step="3">
+                    <button class="progress-step" type="button" data-step="3">
                         <span>4</span>
                         <strong>Date & Time</strong>
                     </button>
-                    <button class="progress-step" data-step="4">
+                    <button class="progress-step" type="button" data-step="4">
                         <span>5</span>
                         <strong>Location</strong>
                     </button>
-                    <button class="progress-step" data-step="5">
+                    <button class="progress-step" type="button" data-step="5">
                         <span>6</span>
                         <strong>Gallery & Social Media</strong>
                     </button>
@@ -91,14 +49,25 @@
                         <label>
                             Event Title *
                             <input type="text" placeholder="Enter event title">
+                            <small>Enter the title.</small>
                         </label>
                         <label>
                             Event Category *
-                            <input type="text" placeholder="Select category">
+                            <select>
+                                <option>Select Category</option>
+                                <option>Conference</option>
+                                <option>Workshop</option>
+                            </select>
+                            <small>Choose the category of your event. You can choose multiple categories for your event.</small>
                         </label>
                         <label>
                             Default Category *
-                            <input type="text" placeholder="Enter default category">
+                            <select>
+                                <option>Select default category</option>
+                                <option>Business</option>
+                                <option>Entertainment</option>
+                            </select>
+                            <small>The default category can affect the listing URL and map marker.</small>
                         </label>
                     </div>
 
@@ -190,74 +159,7 @@
             </div>
         </section>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-box">
-                    <h2>web.dev</h2>
-                    <p>We want to help you build beautiful, accessible, fast, and secure websites that work cross-browser, and for all of your users. This site is our home for content to help you on that journey, written by members of the Chrome team, and external experts.</p>
-                </div>
-                <div class="footer-box">
-                    <h3>Contribute</h3>
-                    <a href="#">File a bug</a>
-                    <a href="#">See Open Issues</a>
-                </div>
-                <div class="footer-box">
-                    <h3>Related Content</h3>
-                    <p>Chrome For Developers</p>
-                    <p>Chromium Updates</p>
-                    <p>Case Studies</p>
-                    <p>Podcasts & Shows</p>
-                </div>
-                <div class="footer-box">
-                    <h3>Follow</h3>
-                    <p>@ChromiumDev on X</p>
-                    <p>Chromium Updates</p>
-                    <p>YouTube</p>
-                    <p>Chrome for Developers on LinkdIn</p>
-                    <p>RSS</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="#">Terms</a>
-                    <span> | </span>
-                    <a href="#">Privacy</a>
-                </div>
-                <div class="language-dropdown">
-                    <button class="language-btn" aria-label="Select language">
-                        <span>🌐</span> English <span>▾</span>
-                    </button>
-                    <div class="language-menu">
-                        <button class="language-item">English</button>
-                        <button class="language-item">Español</button>
-                        <button class="language-item">Français</button>
-                        <button class="language-item">Deutsch</button>
-                        <button class="language-item">Português</button>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
         <script>
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = document.getElementById('themeIcon');
-            const storedTheme = localStorage.getItem('theme');
-
-            const applyTheme = (dark) => {
-                document.body.classList.toggle('dark-mode', dark);
-                if (themeIcon) themeIcon.textContent = dark ? '☀️' : '🌙';
-            };
-
-            if (storedTheme === 'dark') {
-                applyTheme(true);
-            }
-
-            themeToggle?.addEventListener('click', () => {
-                const darkMode = !document.body.classList.contains('dark-mode');
-                applyTheme(darkMode);
-                localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-            });
-
             const formSteps = Array.from(document.querySelectorAll('.form-step'));
             const progressSteps = Array.from(document.querySelectorAll('.progress-step'));
             const prevStepBtn = document.querySelector('.step-btn.prev');
